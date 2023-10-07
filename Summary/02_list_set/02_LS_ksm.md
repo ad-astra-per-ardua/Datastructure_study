@@ -57,4 +57,52 @@ list1.extend(list2)
     정렬을 할때는 순회과정을 O(n) 포함하고, 정렬 O(n logn) 과정을 거침 빅오 표기법에 의해 작은것은 소거되므로
     최종적인 정렬의 시간복잡도는 O(n logn)
 
-  
+## 집합(Set)
+
+집합은 리스트와는 다르게 원소의 중복을 허용하지 않으며, 원소들 사이에 순서가 없다. 
+또한 원소들이 어떤 위치도 가지지도 않고 일렬로 나열하는 의미도 적용되기 어렵기 때문에 linear Datastructure 라고 보기도 어렵다.
+
+현재 파이썬의 집합 자료구조에는 set과 frozenset 이렇게 두개가 존재한다.
+set은 가변형으로 add()나 remove()같은 method를 사용하여 내용을 변경할수있습니다.
+frozenset은 불변이고 **해시가능** 합니다. (불변하는 해시값을 갖고, 다른 객체와 비교될수있음을 나타냄)
+
+집합은 여러 가지 방법으로 만들 수 있습니다.
+- 중괄호 안에 쉼표로 구분된 요소 나열하기: {'jack', 'sjoerd'}
+- 집합 컴프리헨션 사용하기: {c for c in 'abracadabra' if c not in 'abc'}
+- 형 생성자 사용하기: set(), set('foobar'), set(['a', 'b', 'foo'])
+
+- add(elem)
+    원소 elem 을 집합에 추가합니다.
+
+- remove(elem)
+    원소 elem 을 집합에서 제거합니다. elem 가 집합에 포함되어 있지 않으면 KeyError 를 일으킵니다.
+
+- discard(elem)
+    원소 elem 이 집합에 포함되어 있으면 제거합니다.
+
+- pop()
+    집합으로부터 임의의 원소를 제거해 돌려줍니다. 집합이 비어있는 경우 KeyError 를 일으킵니다.
+
+- clear()
+    집합의 모든 원소를 제거합니다.
+
+- union(*others)
+    set | other | ...
+    집합과 모든 others에 있는 원소들로 구성된 새 집합을 돌려줍니다.
+
+- intersection(*others)
+    set & other & ...
+    집합과 모든 others의 공통 원소들로 구성된 새 집합을 돌려줍니다.
+
+- difference(*others)
+    set - other - ...
+    집합에는 포함되었으나 others에는 포함되지 않은 원소들로 구성된 새 집합을 돌려줍니다.
+
+- symmetric_difference(other)
+    set ^ other
+    집합이나 other에 포함되어 있으나 둘 모두에 포함되지는 않은 원소들로 구성된 새 집합을 돌려줍니다.
+
+- copy()
+    집합의 얕은 복사본을 돌려줍니다.
+
+집합을 활용한 알고리즘으로는 Union find, Partition Refinement등이 있습니다.
